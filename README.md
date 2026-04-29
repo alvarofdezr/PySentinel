@@ -7,7 +7,12 @@
     <img src="https://img.shields.io/badge/platform-windows%20%7C%20linux-lightgrey" alt="Platform">
     <img src="https://img.shields.io/badge/version-7.1.0-blue" alt="Version">
     <img src="https://img.shields.io/badge/package%20manager-uv-purple" alt="uv">
+    <img src="https://img.shields.io/badge/stage-Educational_PoC-orange" alt="Stage">
 </p>
+
+> **⚠️ NOTE ON PROJECT SCOPE**: Basilisk is an experimental Endpoint Detection and Response (EDR) system developed exclusively for **architectural research, academic purposes, and malware analysis studies**. 
+>
+> This repository serves as the open-source **reference implementation**. The high-performance engine (intended for critical production environments and based on low-level hooks) is maintained as a separate private research project.
 
 | Feature                | Description                                  |
 |------------------------|----------------------------------------------|
@@ -20,9 +25,17 @@
 | Type Safety            | Pydantic schemas for all data flows          |
 | Professional Dashboard | Cyberpunk-themed web interface               |
 
-**Basilisk** is a lightweight, modular Endpoint Detection and Response (EDR) system built with Python. It features a centralized C2 server, real-time telemetry, active response capabilities, and a strictly typed architecture using Pydantic and SQLAlchemy.
+---
 
-> ⚠️ **DISCLAIMER**: This project is provided **for educational and research purposes only**. Usage on unauthorized systems is strictly prohibited and may be illegal. The author assumes no responsibility for misuse or damages. Use responsibly and always with proper authorization.
+## 🔬 Research Focus
+Basilisk is designed to demonstrate the **Command Dispatcher Pattern** in distributed security systems. Unlike monolithic agents, it utilizes a strictly typed architecture with **Pydantic** to ensure telemetry integrity between the endpoint and the C2 server.
+
+### Roadmap and Enterprise Gap
+To maintain its focus as a learning tool, Basilisk intentionally omits certain "Production-Grade" complexities present in the private version:
+
+1. **Kernel-Mode Operations**: This research version operates in User-Mode (L3). The advanced version implements minifilter drivers for millisecond-level blocking.
+2. **Asynchronous Communication**: The current heartbeat relies on polling every 3s. Professional versions utilize bi-directional streams (gRPC/WebSockets).
+3. **Behavioral AI**: Transitioning from static signatures (YARA) to local ML models for zero-day behavioral analysis.
 
 ---
 
